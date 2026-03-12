@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 300px;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    h3 {
+      margin-top: 0;
+    }
+    .slider-container {
+      margin: 20px 0;
+    }
+    input[type="range"] {
+      width: 100%;
+    }
+    .volume-display {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h3>YouTube Preview Volume</h3>
+  <div class="slider-container">
+    <label for="volume">Preview Volume:</label>
+    <input type="range" id="volume" min="0" max="100" value="20">
+    <div class="volume-display"><span id="volumeValue">20</span>%</div>
+  </div>
+  <p style="font-size: 12px; color: #666;">
+    Adjust the volume level for YouTube video previews. Changes apply instantly!
+  </p>
+  <script src="popup.js"></script>
+</body>
+</html>
