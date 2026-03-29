@@ -1,5 +1,3 @@
-Here's the README edited to be cleaner and more GitHub-standard:
-
 ---
 
 # YouTube Preview Volume Control
