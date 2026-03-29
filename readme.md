@@ -1,10 +1,6 @@
----
-
 # YouTube Preview Volume Control
 
 > A Chrome extension that quietly tames those ear-blasting YouTube hover previews.
-
----
 
 ## Features
 
