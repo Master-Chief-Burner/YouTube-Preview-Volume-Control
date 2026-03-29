@@ -1,130 +1,109 @@
+Here's the README edited to be cleaner and more GitHub-standard:
+
+---
+
 # YouTube Preview Volume Control
 
-A Chrome extension that automatically reduces YouTube video preview volume to a comfortable level, preventing those ear-blasting auto-play previews when you hover over thumbnails.
+> A Chrome extension that quietly tames those ear-blasting YouTube hover previews.
+
+---
 
 ## Features
 
-- **Automatic Volume Control** - Reduces preview video volume to 20% by default
-- **Customizable** - Adjust preview volume from 0-100% with a simple slider
-- **Instant Updates** - Volume changes apply immediately without page reload
-- **Smart Detection** - Only affects preview videos, not main player or Shorts
-- **Persistent Settings** - Remembers your volume preference
-- **Lightweight** - Minimal performance impact
+- 🔊 **Auto Volume Control** — Reduces preview volume to 20% by default
+- 🎚️ **Adjustable** — Set preview volume anywhere from 0–100%
+- ⚡ **Instant** — Changes apply immediately, no page reload needed
+- 🎯 **Smart Detection** — Only targets hover previews, never the main player or Shorts
+- 💾 **Persistent** — Remembers your preference across sessions
+- 🪶 **Lightweight** — Minimal performance impact
 
-## What Gets Controlled
+---
 
-**Controlled:**
-- Thumbnail hover previews  
-- Auto-playing video content on YouTube pages  
+## What It Controls
 
-**Not Controlled:**
-- Main video player (videos you click to watch)  
-- YouTube Shorts  
-- Your normal volume controls  
+| Type | Controlled? |
+|---|---|
+| Thumbnail hover previews | ✅ Yes |
+| Auto-playing video content | ✅ Yes |
+| Main video player | ❌ No |
+| YouTube Shorts | ❌ No |
+
+---
 
 ## Installation
 
-### Install from Source
+1. Clone or download this repository
+2. Go to `chrome://extensions/` in Chrome
+3. Enable **Developer mode** (top-right toggle)
+4. Click **Load unpacked** and select the project folder
+5. The extension icon will appear in your toolbar
 
-1. Download or clone this repository
-2. Open Chrome and navigate to `chrome://extensions/`
-3. Enable "Developer mode" (toggle in top right)
-4. Click "Load unpacked"
-5. Select the folder containing the extension files
-6. Create placeholder icons:
-   - Create three PNG files: `icon16.png`, `icon48.png`, `icon128.png`
-   - Or download icons from the `icons/` folder (if provided)
+> Compatible with Chrome 88+, Edge 88+, Brave, and other Chromium browsers (Manifest V3).
+
+---
 
 ## Usage
 
-1. Click the extension icon in your Chrome toolbar
-2. Adjust the volume slider to your preferred level (default: 20%)
-3. Browse YouTube normally - preview videos will automatically use your set volume
-4. Changes apply instantly to all preview videos
+1. Click the extension icon in your toolbar
+2. Drag the slider to your preferred volume level (default: **20%**)
+3. Browse YouTube — preview volumes are handled automatically
+
+---
 
 ## File Structure
 
 ```
 youtube-preview-volume-control/
-├── manifest.json       # Extension configuration
-├── content.js          # Main volume control logic
-├── popup.html          # Extension popup interface
-├── popup.js            # Popup functionality
-├── icon16.png          # Extension icon (16x16)
-├── icon48.png          # Extension icon (48x48)
-├── icon128.png         # Extension icon (128x128)
-├── CHANGELOG.md        # Version history
-├── README.md           # This file
-└── LICENSE             # MIT License
+├── manifest.json       # Extension config (Manifest V3)
+├── content.js          # Core volume control logic
+├── popup.html          # Toolbar popup UI
+├── popup.js            # Popup logic
+├── icon16.png
+├── icon48.png
+├── icon128.png
+├── CHANGELOG.md
+├── README.md
+└── LICENSE
 ```
-
-## How It Works
-
-The extension:
-1. Monitors the YouTube page for video elements every 250ms
-2. Identifies preview videos (excluding main player and Shorts)
-3. Intercepts the volume property and forces it to your chosen level
-4. Listens for DOM changes and video events to catch new previews
-5. Applies settings instantly when you adjust the slider
-
-## Technical Details
-
-- **Scanning Rate**: 250ms intervals for optimal performance
-- **Volume Interception**: Overrides volume property directly
-- **Event Listeners**: Monitors play, loadedmetadata, loadeddata, canplay, volumechange, loadstart
-- **Smart Detection**: Uses DOM hierarchy to identify video types
-- **Storage**: Chrome sync storage for persistent settings
-
-## Privacy
-
-This extension:
-- Only runs on YouTube.com
-- Stores only your volume preference (locally)
-- Does not collect any personal data
-- Does not track your browsing
-- Does not send data to external servers
-
-## Compatibility
-
-- **Chrome**: Version 88+ (Manifest V3)
-- **Edge**: Version 88+
-- **Brave**: Latest version
-- **Other Chromium browsers**: Should work on any browser supporting Manifest V3
-
-## Known Issues
-
-- Occasional loud beep on first preview load (rare, working on fix)
-- May need page refresh after installation
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for version history.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-If you encounter any issues or have suggestions:
-- Open an issue on GitHub
-- Provide details about your Chrome version and the problem
-
-## Acknowledgments
-
-- Built for people tired of ear-blasting YouTube previews
-- Inspired by the need for a better browsing experience
 
 ---
 
-**Note**: This extension is not affiliated with or endorsed by YouTube or Google.
+## How It Works
+
+- Polls the page every 250ms for new video elements
+- Detects preview videos using DOM hierarchy (excludes main player and Shorts)
+- Overrides the volume property directly on matching elements
+- Listens to `play`, `loadedmetadata`, `canplay`, `volumechange`, and related events
+- Persists your setting via Chrome sync storage
+
+---
+
+## Known Issues
+
+- Rare loud audio spike on the very first preview load — I honestly don't know how to fix it 
+
+---
+
+## Contributing
+
+PRs are welcome!
+
+```bash
+git checkout -b feature/your-feature-name
+git commit -m 'Description of change'
+git push origin feature/your-feature-name
+```
+
+Then open a Pull Request on GitHub.
+
+---
+
+## Privacy
+
+Runs only on `youtube.com`. Stores one value (your volume preference) locally. No data collection, no external requests.
+
+---
+
+## License
+
+[MIT](LICENSE) — not affiliated with or endorsed by YouTube or Google.
