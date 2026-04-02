@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "YouTube Preview Volume Control",
-  "version": "1.5",
+  "version": "1.7.1",
   "description": "Automatically reduces YouTube video preview volume to a comfortable level",
   "permissions": ["storage"],
   "content_scripts": [
